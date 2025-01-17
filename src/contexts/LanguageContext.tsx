@@ -7,8 +7,7 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react';
-import {Language} from "../types/common.ts";
-
+import { Language } from '../types/common.ts';
 
 interface ILanguageContextProps {
   language: Language;

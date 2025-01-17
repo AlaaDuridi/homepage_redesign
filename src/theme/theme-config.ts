@@ -1,4 +1,4 @@
-import { createTheme , type ThemeOptions} from '@mui/material/styles';
+import { createTheme, type ThemeOptions } from '@mui/material/styles';
 declare module '@mui/material/styles' {
   interface TypeBackground {
     default: string;
@@ -60,7 +60,7 @@ export const themeOptions: ThemeOptions = {
       'Tajawal',
       'Cairo',
       'Roboto', // fallback
-      'Arial',  // fallback
+      'Arial', // fallback
       'sans-serif',
     ].join(','),
     h6: {
@@ -128,20 +128,20 @@ export const themeOptions: ThemeOptions = {
     MuiCssBaseline: {
       styleOverrides: ``,
     },
-    MuiLink:{
-        styleOverrides: {
-          root: ({ theme }) => ({
-            color: theme.palette.text.primary,
-            fontWeight: 'bold',
-            textDecoration: 'none',
-            '&:hover': {
-              color: theme.palette.secondary.main,
-              textDecoration: 'underline',
-              textUnderlineOffset: '5px',
-              textDecorationThickness: '2px',
-            },
-          }),
-        },
+    MuiLink: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          color: theme.palette.text.primary,
+          fontWeight: 'bold',
+          textDecoration: 'none',
+          '&:hover': {
+            color: theme.palette.secondary.main,
+            textDecoration: 'underline',
+            textUnderlineOffset: '5px',
+            textDecorationThickness: '2px',
+          },
+        }),
+      },
     },
   },
 };

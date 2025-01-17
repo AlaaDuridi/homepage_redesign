@@ -1,14 +1,14 @@
 import './App.css';
 import { useLanguageContext } from '../../contexts/LanguageContext.tsx';
-import { useMemo,FC } from 'react';
+import { useMemo, FC } from 'react';
 import { ltrTheme, rtlTheme } from '../../theme';
 import { createLtrCache, createRtlCache } from '../../rtlCache.ts';
 import { CacheProvider } from '@emotion/react';
-import { ThemeProvider,Grid} from '@mui/material';
-import {t} from "../../utils/translate.ts";
-import Routes from "../../router";
+import { ThemeProvider, Grid } from '@mui/material';
+import { t } from '../../utils/translate.ts';
+import Routes from '../../router';
 
-const  App:FC=()=> {
+const App: FC = () => {
   const { language } = useLanguageContext();
   const isArabic = language === 'ar';
 
@@ -25,7 +25,7 @@ const  App:FC=()=> {
   // Also, set the <html dir="rtl" or "ltr"> at runtime
   document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
   document.documentElement.lang = language;
-  document.title = `${t('common.app_title',language)}`;
+  document.title = `${t('common.app_title', language)}`;
 
   return (
     <>
@@ -38,6 +38,6 @@ const  App:FC=()=> {
       </CacheProvider>
     </>
   );
-}
+};
 
 export default App;

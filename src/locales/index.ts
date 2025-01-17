@@ -7,14 +7,14 @@ import enHome from './en/home';
 import enMenu from './en/menu';
 
 export const dictionary = {
-    ar: {
-        common: arCommon,
-        home: arHome,
-        menu: arMenu,
-    },
-    en: {
-        common: enCommon,
-        home: enHome,
-        menu: enMenu,
-    },
+  ar: {
+    common: arCommon,
+    home: arHome,
+    menu: arMenu,
+  },
+  en: {
+    common: enCommon,
+    home: enHome,
+    menu: enMenu,
+  },
 };
