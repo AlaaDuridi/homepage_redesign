@@ -1,20 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './views/app/App.tsx'
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import { rtlTheme } from './theme';
-import { CacheProvider } from '@emotion/react';
-import { createRtlCache } from './rtlCache';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import App from './views/app/App.tsx';
+import { LanguageProvider } from './contexts/LanguageContext.tsx';
 
-const rtlCache = createRtlCache();
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-      <CacheProvider value={rtlCache}>
-          <ThemeProvider theme={rtlTheme}>
-              <CssBaseline />
-              <App />
-          </ThemeProvider>
-      </CacheProvider>
+    <LanguageProvider>
+      <App />
+    </LanguageProvider>
   </StrictMode>,
-)
+);
