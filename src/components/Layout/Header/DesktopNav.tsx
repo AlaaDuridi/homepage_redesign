@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import {Box, Grid, Link, Typography} from '@mui/material';
-import {menu} from '../../constants/layout';
-import {t} from "../../utils/translate.ts";
-import {useLanguageContext} from "../../contexts/LanguageContext.tsx";
+import {menu} from '../../../constants/layout.ts';
+import {t} from "../../../utils/translate.ts";
+import {useLanguageContext} from "../../../contexts/LanguageContext.tsx";
 
 
 

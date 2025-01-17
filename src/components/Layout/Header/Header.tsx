@@ -1,6 +1,5 @@
-import  { useState } from 'react';
+import  { useState,FC } from 'react';
 import {
-    AppBar,
     Toolbar,
     Box,
     IconButton,
@@ -11,19 +10,36 @@ import {
     Menu,
     Link,
     Typography,
+    styled,
 
 } from '@mui/material';
 import {Menu as MenuIcon, Search as SearchIcon,ArrowDropDown} from '@mui/icons-material';
-import {LOGO, menu} from "../../constants/layout.ts";
-import {BACKEND_IMAGES} from "../../constants/common.ts";
-import {useLanguageContext} from "../../contexts/LanguageContext.tsx";
+import {LOGO, menu} from "../../../constants/layout.ts";
+import {BACKEND_IMAGES} from "../../../constants/common.ts";
+import {useLanguageContext} from "../../../contexts/LanguageContext.tsx";
 import DesktopNav from "./DesktopNav.tsx";
 import MobileMenu from "./MobileMenu.tsx";
-import {t} from "../../utils/translate.ts";
-import {Language} from "../../types/common.ts";
-
-
-export default function Header() {
+import {t} from "../../../utils/translate.ts";
+import {Language} from "../../../types/common.ts";
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+interface AppBarProps extends MuiAppBarProps {
+    open?: boolean;
+}
+const AppBar = styled(MuiAppBar, {
+    shouldForwardProp: (prop) => prop !== 'open',
+})<AppBarProps>(({ theme, open }) => ({
+    transition: theme.transitions.create(['margin', 'width'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+    }),
+    ...(open && {
+        transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    }),
+}));
+const Header :FC= ()=>{
     const {language, setLanguage} =useLanguageContext();
     const theme = useTheme();
     const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
@@ -55,12 +71,6 @@ export default function Header() {
                     alignItems: 'center'
                 }}
             >
-                    {/*{!isDesktop && (*/}
-                    {/*    <IconButton onClick={handleToggleMobileMenu}>*/}
-                    {/*        <MenuIcon />*/}
-                    {/*    </IconButton>*/}
-                    {/*)}*/}
-                    {/*    <Box component='img' src ={`${BACKEND_IMAGES}${LOGO[language]}`} sx={{ display: 'flex', alignItems: 'center' , width:'20%'}}/>*/}
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                     {!isDesktop && (
                         <IconButton onClick={handleToggleMobileMenu}>
@@ -69,15 +79,20 @@ export default function Header() {
                     )}
 
                     {/* Logo */}
+                    <Link href={'/'}>
                     <Box
                         component="img"
+                        draggable={false}
+                        onContextMenu={(e) => e.preventDefault()}
                         src={`${BACKEND_IMAGES}${LOGO[language]}`}
                         sx={{
                             width: isDesktop ? '150px' : '120px', // Adjust as needed
                             maxHeight: 50,
                             objectFit: 'contain',
+
                         }}
                     />
+                    </Link>
                 </Box>
                 {isDesktop && <DesktopNav />}
                 <Box sx={{ display: 'flex', alignItems: 'center',  gap: 2,
@@ -114,6 +129,7 @@ export default function Header() {
                                     textDecoration: 'none',
                                 }
                         }}
+                        href={'/login'}
                     >
                         <Typography variant="body2" noWrap fontWeight="medium">
                         {t('common.login', language)}
@@ -134,3 +150,4 @@ export default function Header() {
         </AppBar>
     );
 }
+export default Header;

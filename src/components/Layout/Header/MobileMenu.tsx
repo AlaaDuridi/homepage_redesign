@@ -1,10 +1,10 @@
 // MobileMenu.tsx
 import React from 'react';
 import { Drawer, List, ListItemButton, ListItemText } from '@mui/material';
-import {MenuType} from "../../constants/layout.ts";
-import {t} from "../../utils/translate.ts";
-import {useLanguageContext} from "../../contexts/LanguageContext.tsx";
-import {LANGUAGE} from "../../constants/common.ts";
+import {MenuType} from "../../../constants/layout.ts";
+import {t} from "../../../utils/translate.ts";
+import {useLanguageContext} from "../../../contexts/LanguageContext.tsx";
+import {LANGUAGE} from "../../../constants/common.ts";
 interface MobileMenuProps {
     menu: MenuType[];
     open: boolean;

@@ -142,7 +142,7 @@ export const themeOptions: ThemeOptions = {
             },
           }),
         },
-    }
+    },
   },
 };
 
