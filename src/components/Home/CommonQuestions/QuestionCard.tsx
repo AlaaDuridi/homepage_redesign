@@ -50,7 +50,7 @@ const QuestionCard: FC<IQuestionCardProps> = ({ questionId, question }) => {
 
   return (
     <>
-      <Card sx={{ width: '100%' }}>
+      <Card sx={{ width: '100%', mx: theme.spacing(4) }}>
         <CardContent>
           <Typography variant='h6' color='textSecondary' gutterBottom>
             {language === LANGUAGE.AR ? question.category?.name : question.category?.name_en}
