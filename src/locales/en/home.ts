@@ -12,4 +12,5 @@ export default {
   all_experts: 'All experts',
   experts_title: 'Meet the 360Moms Experts',
   recent_questions_title: 'Recently Asked Questions',
+  common_questions_title: 'Frequently Asked Questions',
 };

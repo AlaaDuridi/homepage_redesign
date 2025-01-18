@@ -22,3 +22,11 @@ export interface IQuestion {
   answers: IAnswer[];
   category: ICategory;
 }
+
+export interface IQuestionDetails extends IQuestion {
+  user: {
+    id: number;
+    first_name: string;
+    last_name: string;
+  };
+}

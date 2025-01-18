@@ -12,4 +12,5 @@ export default {
   all_experts: 'جميع الخبراء',
   experts_title: 'تعرف على خبراء 360Moms',
   recent_questions_title: 'أسئلة طرحت مؤخراً ',
+  common_questions_title: 'الأسئلة الأكثر شيوعاً ',
 };

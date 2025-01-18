@@ -6,6 +6,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { t } from '../../../../utils/translate.ts';
 import { useLanguageContext } from '../../../../contexts/LanguageContext.tsx';
 import { QUESTIONS_SECTION_IMAGE } from '../../../../constants/home.ts';
+import { LANGUAGE } from '../../../../constants/common.ts';
 
 interface IQuestionSlideProps {
   question: IQuestion;
@@ -32,8 +33,8 @@ const QuestionSlide: FC<IQuestionSlideProps> = ({ question }) => {
         <Box
           component={'img'}
           onError={handleImageError}
-          src={question.category.photo}
-          alt={question.category.name}
+          src={language === LANGUAGE.AR ? question.category.photo : question.category.photo_en}
+          alt={language === LANGUAGE.AR ? question.category.name : question.category.name_en}
           style={{ width: '60%', borderRadius: '10%', height: 'auto' }}
         />
         <Typography variant={'subtitle1'}>{question.text.slice(0, 100)}...</Typography>
