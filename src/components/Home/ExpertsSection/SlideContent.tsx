@@ -28,7 +28,6 @@ const SlideContent: FC<ISlideContentProps> = ({ expert }) => {
       >
         <Grid container item justifyContent={'center'} alignItems={'center'}>
           <Typography variant={'h4'} fontWeight={'bold'}>
-            {' '}
             {t('home.experts_title', language)}
           </Typography>
         </Grid>

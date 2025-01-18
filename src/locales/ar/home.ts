@@ -11,4 +11,5 @@ export default {
   read_more: 'اقرأ المزيد',
   all_experts: 'جميع الخبراء',
   experts_title: 'تعرف على خبراء 360Moms',
+  recent_questions_title: 'أسئلة طرحت مؤخراً ',
 };

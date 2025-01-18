@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Box, Button, useTheme } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { useLanguageContext } from '../../../contexts/LanguageContext';
@@ -31,8 +31,9 @@ const ExpertsSlideshow: FC = () => {
     >
       {/* Swiper Component */}
       <Swiper
-        modules={[Pagination, Autoplay]}
+        modules={[Pagination, EffectFade, Autoplay]}
         loop={true}
+        effect={'fade'}
         autoplay={{ delay: 3000 }}
         pagination={{ clickable: true }}
       >

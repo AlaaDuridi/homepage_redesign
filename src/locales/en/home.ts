@@ -11,4 +11,5 @@ export default {
   read_more: 'Read more',
   all_experts: 'All experts',
   experts_title: 'Meet the 360Moms Experts',
+  recent_questions_title: 'Recently Asked Questions',
 };
