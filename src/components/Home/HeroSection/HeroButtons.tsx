@@ -1,34 +1,44 @@
-import { Grid, Button, Typography, useTheme } from '@mui/material';
-import { t } from '../../../utils/translate.ts';
-import { useLanguageContext } from '../../../contexts/LanguageContext.tsx';
+import {Button, Typography, useTheme, Box} from '@mui/material';
+import {t} from '../../../utils/translate.ts';
+import {useLanguageContext} from '../../../contexts/LanguageContext.tsx';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const HeroButtons = () => {
-  const theme = useTheme();
-  const { language } = useLanguageContext();
+    const theme = useTheme();
+    const {language} = useLanguageContext();
 
-  return (
-    <Grid
-      container
-      spacing={2}
-      justifyContent='center'
-      alignItems='center'
-      sx={{ mb: theme.spacing(4) }}
-    >
-      <Grid item>
-        <Button variant='contained' color='primary' sx={{ borderRadius: '50px' }}>
-          {t('home.start_trial', language)}
-        </Button>
-      </Grid>
-      <Grid item>
-        <Button
-          variant='outlined'
-          sx={{ borderRadius: '50px', borderColor: theme.palette.grey[400] }}
-        >
-          {t('home.corporate_experience', language)}
-        </Button>
-      </Grid>
-    </Grid>
-  );
+
+    return (
+        <Box sx={{
+            m: theme.spacing(4),
+            display: 'flex',
+            gap: 2,
+            justifyContent: {xs: 'center', md: 'flex-start'},
+            flexDirection: {md: 'row', sm: 'column'}
+        }}>
+            <Button fullWidth
+                    variant="contained"
+                    color="primary"
+                    endIcon={theme.direction === 'rtl' ? <ArrowBackIcon color={'action'}/> :
+                        <ArrowForwardIcon color={'action'}/>}
+            >
+                <Typography noWrap variant={'h5'} color={'text.primary'}>
+                    {t('home.start_trial', language)}
+                </Typography>
+            </Button>
+            <Button fullWidth
+                    variant="contained"
+                    color="secondary"
+                    endIcon={theme.direction === 'rtl' ? <ArrowBackIcon color={'action'}/> :
+                        <ArrowForwardIcon color={'action'}/>}
+            >
+                <Typography noWrap variant={'h5'} color={'text.primary'}>
+                    {t('home.corporate_experience', language)}
+                </Typography>
+            </Button>
+        </Box>
+    );
 };
 
 export default HeroButtons;

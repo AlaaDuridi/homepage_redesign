@@ -1,16 +1,15 @@
 import { FC, PropsWithChildren } from 'react';
-import { Grid, CssBaseline, useTheme, GlobalStyles } from '@mui/material';
+import { Grid, Container, CssBaseline, GlobalStyles , useTheme} from '@mui/material';
 import Header from './Header/Header.tsx';
 import { Outlet } from 'react-router-dom';
 import { WHATSAPP_BACKGROUND } from '../../constants/layout.ts';
 import { BACKEND_IMAGES } from '../../constants/common.ts';
 
 export const Layout: FC<PropsWithChildren<NonNullable<unknown>>> = ({ children }) => {
-  const theme = useTheme();
   const backgroundPath = `${BACKEND_IMAGES}${WHATSAPP_BACKGROUND}`;
-  console.log(backgroundPath);
+  const theme=useTheme();
   return (
-    <Grid container sx={{ backgroundImage: backgroundPath }}>
+    <Container  maxWidth="xl"  sx={{ backgroundImage: backgroundPath,p:theme.spacing(14) }}>
       <CssBaseline />
       <GlobalStyles
         styles={{
@@ -18,21 +17,24 @@ export const Layout: FC<PropsWithChildren<NonNullable<unknown>>> = ({ children }
             position: 'relative',
             backgroundImage: `url(${backgroundPath})`,
             backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            backgroundPosition: 'bottom left',
+            backgroundSize: '100% 70%',
+            backgroundPosition: 'top right',
           },
         }}
       />
       <Header />
       <Grid
         container
+
         sx={{
-          m: theme.spacing(3),
+            width: '100%',
+
         }}
       >
         <Outlet />
+          {children}
       </Grid>
-    </Grid>
+    </Container>
   );
 };
 export default Layout;
