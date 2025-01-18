@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren } from 'react';
-import { Grid, Container, CssBaseline, GlobalStyles , useTheme} from '@mui/material';
+import { Grid, Container, CssBaseline, GlobalStyles, useTheme } from '@mui/material';
 import Header from './Header/Header.tsx';
 import { Outlet } from 'react-router-dom';
 import { WHATSAPP_BACKGROUND } from '../../constants/layout.ts';
@@ -7,9 +7,9 @@ import { BACKEND_IMAGES } from '../../constants/common.ts';
 
 export const Layout: FC<PropsWithChildren<NonNullable<unknown>>> = ({ children }) => {
   const backgroundPath = `${BACKEND_IMAGES}${WHATSAPP_BACKGROUND}`;
-  const theme=useTheme();
+  const theme = useTheme();
   return (
-    <Container  maxWidth="xl"  sx={{ backgroundImage: backgroundPath,p:theme.spacing(14) }}>
+    <Container maxWidth='xl' sx={{ backgroundImage: backgroundPath, p: theme.spacing(14) }}>
       <CssBaseline />
       <GlobalStyles
         styles={{
@@ -25,14 +25,12 @@ export const Layout: FC<PropsWithChildren<NonNullable<unknown>>> = ({ children }
       <Header />
       <Grid
         container
-
         sx={{
-            width: '100%',
-
+          width: '100%',
         }}
       >
         <Outlet />
-          {children}
+        {children}
       </Grid>
     </Container>
   );

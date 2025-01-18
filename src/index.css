@@ -9,7 +9,6 @@
   color: rgb(87, 43, 136);
   background-color: white;
 
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -48,12 +47,12 @@ body {
   padding: 0.44rem;
   position: relative;
 }
-.swiper-pagination-bullet{
-  background-color: #80C6E2 !important;;
+.swiper-pagination-bullet {
+  background-color: #80c6e2 !important;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #0992C8 !important; ;
+  background-color: #0992c8 !important;
 }
 .swiper-slide {
   opacity: 0 !important;

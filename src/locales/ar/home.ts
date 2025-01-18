@@ -8,8 +8,7 @@ export default {
   answer_checked_person: 'إجابات من أطباء وخبراء معتمدين',
   answer_person: 'نهج شخصي',
   answer_list: 'خطط اشتراك مرنة',
-  read_more:'اقرأ المزيد',
-  all_experts:'جميع الخبراء',
-  experts_title:'تعرف على خبراء 360Moms'
-
+  read_more: 'اقرأ المزيد',
+  all_experts: 'جميع الخبراء',
+  experts_title: 'تعرف على خبراء 360Moms',
 };
