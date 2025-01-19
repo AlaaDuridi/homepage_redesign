@@ -1,15 +1,16 @@
 import { useState, FC } from 'react';
 import {
+  AppBar,
   Toolbar,
   Box,
   IconButton,
-  useMediaQuery,
-  useTheme,
   Button,
   MenuItem,
   Menu,
   Link,
   Typography,
+  useMediaQuery,
+  useTheme,
   styled,
 } from '@mui/material';
 import { Menu as MenuIcon, Search as SearchIcon, ArrowDropDown } from '@mui/icons-material';
@@ -20,28 +21,17 @@ import DesktopNav from './DesktopNav.tsx';
 import MobileMenu from './MobileMenu.tsx';
 import { t } from '../../../utils/translate.ts';
 import { Language } from '../../../types/common.ts';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
-}
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})<AppBarProps>(({ theme, open }) => ({
-  transition: theme.transitions.create(['margin', 'width'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
+
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  boxShadow: 'none',
+  borderBottom: '1px solid #ccc',
 }));
+
 const Header: FC = () => {
   const { language, setLanguage } = useLanguageContext();
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md')); // Check if the screen is at least 'md' breakpoint
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Check if the screen is 'sm' or smaller
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -61,23 +51,32 @@ const Header: FC = () => {
     setLanguage(lang);
     setAnchorEl(null);
   };
+
   return (
-    <AppBar position='static' color='transparent' sx={{ boxShadow: 'none' }}>
+    <StyledAppBar position='static' color='transparent'>
       <Toolbar
         sx={{
+          flexWrap: 'wrap', // Allow wrapping for content
           justifyContent: 'space-between',
-          borderBottom: '1px solid #ccc',
           alignItems: 'center',
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        {/* Left Section: Logo and Mobile Menu */}
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 1,
+            p: theme.spacing(2),
+            flex: isMobile ? '1 0 100%' : 'auto',
+          }}
+        >
           {!isDesktop && (
             <IconButton onClick={handleToggleMobileMenu}>
               <MenuIcon />
             </IconButton>
           )}
 
-          {/* Logo */}
           <Link href={'/'}>
             <Box
               component='img'
@@ -85,15 +84,32 @@ const Header: FC = () => {
               onContextMenu={(e) => e.preventDefault()}
               src={`${BACKEND_IMAGES}${LOGO[language]}`}
               sx={{
-                width: isDesktop ? '150px' : '120px', // Adjust as needed
+                width: isDesktop ? '150px' : '120px',
                 maxHeight: 50,
                 objectFit: 'contain',
               }}
             />
           </Link>
         </Box>
-        {isDesktop && <DesktopNav />}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, whiteSpace: 'nowrap' }} m={1}>
+
+        {/* Middle Section: Desktop Navigation */}
+        {isDesktop && (
+          <Box sx={{ flex: 1 }}>
+            <DesktopNav />
+          </Box>
+        )}
+
+        {/* Right Section: Language, Login, Search */}
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 2,
+            flex: isMobile ? '1 0 100%' : 'auto',
+            justifyContent: isMobile ? 'space-between' : 'flex-end',
+            mt: isMobile ? 2 : 0, // Add spacing between rows on mobile
+          }}
+        >
           <Button
             variant='text'
             onClick={handleLangClick}
@@ -101,7 +117,6 @@ const Header: FC = () => {
             sx={{
               fontWeight: 'medium',
               textTransform: 'none',
-              // noWrap approach
               whiteSpace: 'nowrap',
             }}
           >
@@ -132,14 +147,15 @@ const Header: FC = () => {
               {t('common.login', language)}
             </Typography>
           </Link>
-          {/* Search Icon */}
           <IconButton>
             <SearchIcon />
           </IconButton>
         </Box>
       </Toolbar>
+
       <MobileMenu menu={menu} open={mobileOpen} onClose={handleToggleMobileMenu} />
-    </AppBar>
+    </StyledAppBar>
   );
 };
+
 export default Header;

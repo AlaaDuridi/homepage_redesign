@@ -14,7 +14,7 @@ const HeroButtons = () => {
         display: 'flex',
         gap: 2,
         justifyContent: { xs: 'center', md: 'flex-start' },
-        flexDirection: { md: 'row', sm: 'column' },
+        flexDirection: { lg: 'row', md: 'row', xs: 'column', sm: 'column' },
       }}
     >
       <Button
