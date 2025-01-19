@@ -26,7 +26,6 @@ const ExpertsSlideshow: FC = () => {
         maxWidth: '100%',
         mx: 'auto',
         pb: theme.spacing(2),
-        border: '1px red solid',
       }}
     >
       {/* Swiper Component */}

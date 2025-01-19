@@ -4,6 +4,7 @@ import Header from './Header/Header.tsx';
 import { Outlet } from 'react-router-dom';
 import { WHATSAPP_BACKGROUND } from '../../constants/layout.ts';
 import { BACKEND_IMAGES } from '../../constants/common.ts';
+import Footer from './Footer';
 
 export const Layout: FC<PropsWithChildren<NonNullable<unknown>>> = ({ children }) => {
   const backgroundPath = `${BACKEND_IMAGES}${WHATSAPP_BACKGROUND}`;
@@ -32,6 +33,7 @@ export const Layout: FC<PropsWithChildren<NonNullable<unknown>>> = ({ children }
         <Outlet />
         {children}
       </Grid>
+      <Footer />
     </Container>
   );
 };

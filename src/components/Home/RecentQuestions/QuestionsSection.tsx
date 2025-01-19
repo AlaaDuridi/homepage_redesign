@@ -33,7 +33,7 @@ const QuestionsSection: FC = () => {
   }, []);
 
   return (
-    <Grid container sx={{ border: '1px red solid' }}>
+    <Grid container>
       {isLoading ? (
         <QuestionSkeleton />
       ) : (

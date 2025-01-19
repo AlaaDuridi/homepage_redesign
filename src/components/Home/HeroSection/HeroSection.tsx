@@ -10,7 +10,7 @@ const HeroSection: FC = () => {
   const theme = useTheme();
 
   return (
-    <Grid container justifyContent='center' sx={{ border: '1px solid red' }}>
+    <Grid container justifyContent='center'>
       {/* Text Section */}
       <Grid
         item

@@ -353,6 +353,15 @@ export enum ICONS {
   PERSON_MOBILE = '/images/icons/mobilefive.svg',
   LIST = '/images/icons/icon4.svg',
   LIST_MOBILE = '/images/icons/3mobile.svg',
+  TWITTER = '/images/twitter-circled.svg',
+  FACEBOOK = '/images/facebook.svg',
+  INSTAGRAM = '/images/icons8-instagram.svg',
+  YOUTUBE = '/images/youtube copy.svg',
 }
 
 export const WHATSAPP_BACKGROUND = '/images/whatsappBackground.png';
+
+export enum FOOTER_LOGO {
+  ar = '/images/360MOMSIMG.svg',
+  en = '/images/360MOMSIMGEN2.svg',
+}

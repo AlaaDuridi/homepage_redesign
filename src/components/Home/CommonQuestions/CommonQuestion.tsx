@@ -46,7 +46,7 @@ const CommonQuestion: FC = () => {
   );
 
   return (
-    <Grid container sx={{ border: '1px red solid' }}>
+    <Grid container>
       <Grid
         container
         item
