@@ -41,7 +41,7 @@ const AppBar = styled(MuiAppBar, {
 const Header: FC = () => {
   const { language, setLanguage } = useLanguageContext();
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   const [mobileOpen, setMobileOpen] = useState(false);
 

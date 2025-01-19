@@ -11,7 +11,6 @@ const HeroButtons = () => {
   return (
     <Box
       sx={{
-        m: theme.spacing(4),
         display: 'flex',
         gap: 2,
         justifyContent: { xs: 'center', md: 'flex-start' },
@@ -30,7 +29,7 @@ const HeroButtons = () => {
           )
         }
       >
-        <Typography noWrap variant={'h5'} color={'text.primary'}>
+        <Typography variant={'h5'} color={'text.primary'}>
           {t('home.start_trial', language)}
         </Typography>
       </Button>
@@ -46,7 +45,7 @@ const HeroButtons = () => {
           )
         }
       >
-        <Typography noWrap variant={'h5'} color={'text.primary'}>
+        <Typography variant={'h5'} color={'text.primary'}>
           {t('home.corporate_experience', language)}
         </Typography>
       </Button>

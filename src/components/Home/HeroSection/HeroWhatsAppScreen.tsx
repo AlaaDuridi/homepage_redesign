@@ -16,6 +16,7 @@ const HeroWhatsAppScreen: FC = () => {
         justifyContent: 'center',
         alignItems: 'center',
         p: { xs: theme.spacing(2), md: 0 },
+        m: theme.spacing(2),
       }}
     >
       <img

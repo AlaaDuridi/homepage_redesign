@@ -88,4 +88,8 @@ export default {
   home: 'منزلي',
 
   moms360_news: 'أخبار أمهات360',
+  choose_country: 'اختاري الدولة',
+  jordan: 'الأردن',
+  saudi: 'السعودية',
+  global: 'عالمي',
 };

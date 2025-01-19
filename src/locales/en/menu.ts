@@ -87,4 +87,8 @@ export default {
   home: 'Home',
 
   moms360_news: '360MOMS NEWS',
+  choose_country: 'Choose Country',
+  jordan: 'Jordan',
+  saudi: 'Saudi Arabia',
+  global: 'Global',
 };
