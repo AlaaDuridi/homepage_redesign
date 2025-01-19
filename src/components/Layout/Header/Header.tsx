@@ -94,7 +94,7 @@ const Header: FC = () => {
 
         {/* Middle Section: Desktop Navigation */}
         {isDesktop && (
-          <Box sx={{ flex: 1 }}>
+          <Box sx={{ flex: 5 }}>
             <DesktopNav />
           </Box>
         )}

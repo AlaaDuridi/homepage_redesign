@@ -11,7 +11,12 @@ const SubFooter: FC = () => {
   return (
     <>
       <Grid
-        sx={{ backgroundColor: theme.palette.primary.main }}
+        sx={{
+          backgroundColor: '#334154',
+          color: '#FFFFFF',
+          py: theme.spacing(2),
+          px: theme.spacing(2),
+        }}
         container
         justifyContent={isLargeScreen ? 'space-around' : 'space-between'}
         alignItems={isLargeScreen ? 'space-around' : 'center'}

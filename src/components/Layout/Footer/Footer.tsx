@@ -13,7 +13,9 @@ const Footer: FC = () => {
 
   return (
     <>
-      <Box
+      <Grid
+        container
+        alignItems='center'
         sx={{
           backgroundColor: '#1C2536',
           color: '#FFFFFF',
@@ -22,9 +24,8 @@ const Footer: FC = () => {
           mt: 4,
         }}
       >
-        {/* Top Section */}
-        <Grid container spacing={2} alignItems='center'>
-          <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={9}>
+          <Grid container item justifyContent={'space-between'}>
             <Link href={'/'}>
               <Box
                 component='img'
@@ -40,8 +41,10 @@ const Footer: FC = () => {
             </Link>
           </Grid>
         </Grid>
+
         <MidFooter />
-      </Box>
+      </Grid>
+
       <SubFooter />
     </>
   );

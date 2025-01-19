@@ -20,7 +20,7 @@ const MidFooter: FC = () => {
     >
       {/* Links Section */}
       <Grid item xs={12} md={9}>
-        <Grid container item justifyContent={'space-around'}>
+        <Grid container item justifyContent={'space-between'}>
           {[
             { label: t('footer.terms_conditions', language), href: '/terms-and-conditions' },
             { label: t('footer.privacy_policy', language), href: '/privacy-policy' },

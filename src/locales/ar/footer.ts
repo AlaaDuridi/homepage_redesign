@@ -8,5 +8,5 @@ export default {
   laws: 'القوانين',
   privacy: 'الخصوصية',
   terms: 'الشروط',
-  follow_us: 'تابعنا على',
+  follow_us: 'تابعينا على',
 };

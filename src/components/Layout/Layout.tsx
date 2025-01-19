@@ -36,8 +36,8 @@ export const Layout: FC<PropsWithChildren<NonNullable<unknown>>> = ({ children }
           <Outlet />
           {children}
         </Grid>
-        <Footer />
       </Container>
+      <Footer />
     </>
   );
 };
